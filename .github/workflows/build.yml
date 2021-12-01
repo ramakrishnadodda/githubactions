@@ -9,7 +9,7 @@ on:
     
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       DOTNET_VERSION: '3.1.x'
       SOLUTIONPATH: 'src/Poke.API.Facade.sln'
@@ -17,10 +17,15 @@ jobs:
     steps: 
 
      #Setup dotnet
-     - name: Setup DotNet ${{ env.DOTNET_VERSION }}
-       uses: actions/setup-dotnet@v1
+     
+     - uses: jannemattila/actions/azurepowershell@master
        with:
-       dotnet-version: ${{ env.DOTNET_VERSION }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+#      - name: Setup DotNet ${{ env.DOTNET_VERSION }}
+#        uses: actions/setup-dotnet@v1
+#        with:
+#        dotnet-version: ${{ env.DOTNET_VERSION }}
 
       #Build code
      - name: Build code
