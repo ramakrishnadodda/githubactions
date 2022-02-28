@@ -13,7 +13,7 @@ on:
 
 jobs:
   Build-and-Publish:
-    runs-on: [DESKTOP-DN6NA9F]
+    runs-on: [INBL01LAP05520]
     env:
       DOTNET_VERSION: '3.1.x'
       SOLUTIONPATH: ''
