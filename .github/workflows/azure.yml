@@ -44,18 +44,18 @@ jobs:
       with:
        nuget-version: ${{env.NUGET_VERSION}}
 
-    - name: Restore dependencies
-      run: nuget restore ${{env.SOLUTIONPATH}}
+#     - name: Restore dependencies
+#       run: nuget restore ${{env.SOLUTIONPATH}}
 
   
-    - name: Build Solution
-      run: |
-          msbuild ${{env.SOLUTIONPATH}} /p:OutputPath=./output
+#     - name: Build Solution
+#       run: |
+#           msbuild ${{env.SOLUTIONPATH}} /p:OutputPath=./output
        
-    - name: Get Test-Env webconf file 
-      if: ${{ github.event.inputs.choice == 'test' }}
-      run: |
-          ${{ env.deploymentscript }}/testwebconfig.ps1 
+#     - name: Get Test-Env webconf file 
+#       if: ${{ github.event.inputs.choice == 'test' }}
+#       run: |
+#           ${{ env.deploymentscript }}/testwebconfig.ps1 
           
           
   Deploy-DevEnv:
