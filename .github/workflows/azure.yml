@@ -59,7 +59,7 @@ jobs:
           
           
   Deploy-DevEnv:
-    runs-on: [self-hosted, Dev]
+    runs-on: [self-hosted]
     if: ${{ github.event.inputs.choice == 'dev' }}
     needs: Build-and-Publish
     environment:
@@ -71,7 +71,7 @@ jobs:
           dir ${{ github.workspace }}
         
   Deploy-TestEnv:
-    runs-on: [self-hosted, Dev]
+    runs-on: [self-hosted]
     if: ${{ github.event.inputs.choice == 'test' }}
     needs: Build-and-Publish
     environment:
